@@ -1,0 +1,47 @@
+<div class="modal-body">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Name*</label>
+      <input type="text" class="form-control" formControlName="name" required>
+      <div class="text-danger" *ngIf="form.get('name')?.invalid  && form.get('name')?.dirty">
+        <div *ngIf="form.get('name')?.errors?.required">
+          This field is required
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <input type="text" class="form-control" formControlName="description">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Age Restriction*</label>
+      <input type="number" class="form-control" formControlName="ageRestriction">
+      <div class="text-danger" *ngIf="form.get('ageRestriction')?.invalid  && form.get('ageRestriction')?.dirty">
+        <div *ngIf="form.get('ageRestriction')?.errors?.required">
+          This field is required
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Company*</label>
+      <input type="text" class="form-control" formControlName="company">
+      <div class="text-danger" *ngIf="form.get('company')?.invalid  && form.get('company')?.dirty">
+        <div *ngIf="form.get('company')?.errors?.required">
+          This field is required
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Price*</label>
+      <input type="number" class="form-control" formControlName="price">
+      <div class="text-danger" *ngIf="form.get('price')?.invalid  && form.get('price')?.dirty">
+        <div *ngIf="form.get('price')?.errors?.required">
+          This field is required
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-danger mr-2" (click)="modal.close()">Cancel</button>
+    <button type="submit" class="btn btn-primary mr-2" [disabled]="form.invalid">Save</button>
+  </form>
+</div>
